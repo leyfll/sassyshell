@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "langchain>=0.3.27",
     "pydantic-settings>=2.11.0",
     "scikit-learn>=1.7.2",
     "typer>=0.19.2",
