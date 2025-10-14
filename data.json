@@ -1,0 +1,23 @@
+[
+    {
+        "generalized_command": "git push",
+        "user_query": [
+            "Hello",
+            "Hello",
+            "Hello, what's up?"
+        ],
+        "statistics": {
+            "times_called": 3
+        }
+    },
+    {
+        "generalized_command": "testing",
+        "user_query": [
+            "How to test?",
+            "What to test dude this is me testing"
+        ],
+        "statistics": {
+            "times_called": 2
+        }
+    }
+]
