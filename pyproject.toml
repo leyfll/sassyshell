@@ -1,10 +1,10 @@
 [project]
 name = "sassyshell"
-version = "0.1.1"
+version = "0.1.2"
 description = "A sassy, AI-powered CLI sidekick that remembers the commands you forget and mocks you into getting better."
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "MIT" }
+license = "MIT"
 keywords = ["cli", "ai", "shell", "productivity", "developer-tools", "linux", "terminal"]
 authors = [
   { name = "Parth Jain", email = "parthjain1812@gmail.com" },
@@ -12,7 +12,6 @@ authors = [
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -21,10 +20,14 @@ classifiers = [
 ]
 dependencies = [
     "langchain-ollama>=0.3.10",
-    "langchain[anthropic,google-genai,groq,openai]>=0.3.27",
     "pydantic-settings>=2.11.0",
     "scikit-learn>=1.7.2",
     "typer>=0.19.2",
+    "grpcio==1.67.1",
+    "langchain-google-genai>=2.1.12",
+    "langchain-groq>=0.3.8",
+    "langchain-openai>=0.3.35",
+    "langchain-anthropic>=0.3.22",
 ]
 
 [project.scripts]
