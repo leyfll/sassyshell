@@ -26,14 +26,14 @@ It's a project born from turning my own laziness into data. It's designed to moc
 * **Platform Aware:** Automatically detects if you're on Linux, macOS, or Windows and asks the LLM for the correct shell syntax (`bash`/`zsh` vs. PowerShell).
 * **Lightweight & Fast:** Uses a fast local similarity search before ever calling an LLM.
 
-![Demo](assets/render1760508770224.gif)
+<img src="assets/render1760508770224.gif" alt="Sassyshell Demo" width="800" />
 
 ### Installation
 
 The recommended way to install SassyShell is with `uvx` or `pipx`. This installs it in an isolated environment so it doesn't clutter your global packages.
 
 ```bash
-uvx install sassyshell
+uvx sassyshell
 ```
 
 Or, if you use `pipx`:
