@@ -2,19 +2,29 @@ import os
 os.environ["GRPC_VERBOSITY"] = "ERROR"
 
 import typer
+from rich.console import Console
+from rich.syntax import Syntax
 from typing_extensions import Annotated
-from pathlib import Path
 from .classifier import find_most_similar_commands
 from .storage import save_data, get_data
 from .llm_client import get_results_from_llm
 from .config import settings
+from .setup import init_config
 
 FILE_NAME = settings.data_file
+console = Console()
+app = typer.Typer(help="SassyShell CLI")
 
-
+@app.command(name="ask")
 def sassysh(
     query: Annotated[str, typer.Argument(help="The query to process")] = "",
 ):
+    if not settings.llm_api_key:
+        console.print("\n[bold yellow]⚠️  Welcome to SassyShell! API Key not found.[/bold yellow]")
+        console.print("It looks like your configuration is incomplete.")
+        console.print("\nPlease run the one-time setup wizard to get started:")
+        console.print("\n  [cyan]sassysh setup[/cyan]\n")
+        raise typer.Exit()
     user_input: dict[str, str] = {"user_query": query}
     load_data = get_data(FILE_NAME)
     
@@ -31,7 +41,9 @@ def sassysh(
 
 
     response = get_results_from_llm(user_input)
-    print(f"\n{response.message_to_user}\n")
+    console.print(f"\n{response.message_to_user}\n")
+    highlighted_command = Syntax(response.command, "bash", theme="monokai", line_numbers=False)
+    console.print(highlighted_command)
         
     # Save data
     output = {
@@ -42,8 +54,9 @@ def sassysh(
     save_data(output, FILE_NAME)
 
 
-app = typer.Typer(help="SassyShell CLI")
-app.command()(sassysh)
+@app.command(name="setup")
+def setup():
+    init_config()
 
 if __name__ == "__main__":
     app()

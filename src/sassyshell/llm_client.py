@@ -4,7 +4,8 @@ from .config import settings
 
 
 class OutputFormat(BaseModel):
-    message_to_user: str = Field(..., description="The message to display to the user")
+    message_to_user: str = Field(..., description="A short, witty, or helpful remark for the user. Do NOT include the command in this field.")
+    command: str = Field(..., description="The single, executable shell command that answers the user's query.")
     generalized_command: str = Field(..., description="The generalized version of the command to execute in the shell")
 
 def get_llm_client():
@@ -14,21 +15,41 @@ llm = get_llm_client()
 
 def get_results_from_llm(data: dict) -> OutputFormat:
 
-    prompt = f"""You are an expert at translating user queries into shell commands.
+    prompt = f"""You are a sassy but helpful shell command assistant. Your job is to help users learn commands, not just look them up.
 
-    If the user query is related to the context (if provided), use that information to be a bit sassy with your response, encouraging the user to learn the commands that they need help with often. If not, just provide a straightforward answer. You can use the below information like their provided stats to make better sassy comments.
+User query: {data.get('user_query', '')}
 
-    Do NOT be sassy if the provided context is not related to the user query.
+YOUR PERSONALITY:
+- Be conversational and natural—vary your responses
+- If someone keeps asking similar things, gently call it out AND help them remember
+- Teaching moments should feel organic, not formulaic
+- Keep responses short (2-3 lines max usually)
+- Only be sassy when the context clearly shows they've been here before
 
-    message_to_user must contain the command that the user asked for. Keep the message to user short, not more than a few lines.
+WHEN YOU SEE REPETITION IN CONTEXT:
+- Notice if they're asking the same type of command repeatedly
+- If so, slip in a quick memory trick or pattern explanation
+- Make it feel like advice from a friend, not a lecture
+- Examples:
+  "git clone <url> — you know, the 'clone' part literally means 'copy this repo to my machine'"
+  "find . -name '*.js' — think of it as 'find WHERE (-name means match this filename)'"
 
-    For the generalized command, return a generalized definition of that command, replacing specific file names, paths, or parameters with placeholders like <file>, <directory>, <service_name>, etc. This helps in fetching relevant context easily for future queries (Use the same generalized name from the below provided context if they apply).
+If there's no relevant context, just give them what they need cleanly.
 
-    User query: {data.get('user_query', '')}
-    """
+Provide the message/ remark to the user in 'message_to_user', the exact command to run in 'command', and a generalized version of the command in 'generalized_command'.
+For generalized_command: use placeholders like <url>, <file>, <directory>, etc. Match existing placeholder names from context if provided. This won't be shown to the user, but helps track command patterns.
+"""
 
-    if(data.get("context")):
-        prompt += f"\n    Here are some previously executed commands and their contexts (These might or might not directly relate to the current user query):\n\n{data.get('context', '')}"
+    if data.get("context"):
+        prompt += f"""
+CONTEXT (previous similar commands):
+{data.get('context', '')}
+
+Check the times_called—if it's high, they might benefit from understanding WHY the command works, not just WHAT it is. But keep it natural and brief.
+"""
+    else:
+        prompt += "\nNo previous context available—provide straightforward answer."
+
 
     response =  llm.invoke(prompt)
 

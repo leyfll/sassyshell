@@ -10,7 +10,7 @@ def save_data(data: dict, path: Path):
         if data.get("generalized_command") == item.get("generalized_command"):
             item.get("statistics")["times_called"] += 1
             item.get("user_query").append(data.get("user_query")[0]) # type: ignore
-            item.get("user_query") = item.get("user_query")[-settings.max_history_size:] # type: ignore
+            item["user_query"] = item.get("user_query")[-settings.max_history_size:] # type: ignore
             break
     else:
         content.append(data)
