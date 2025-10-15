@@ -19,6 +19,8 @@ def get_results_from_llm(data: dict) -> OutputFormat:
 
 User query: {data.get('user_query', '')}
 
+User's shell type: {data.get('shell_type', 'unknown')}
+
 YOUR PERSONALITY:
 - Be conversational and natural—vary your responses
 - If someone keeps asking similar things, gently call it out AND help them remember

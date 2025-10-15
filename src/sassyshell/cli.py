@@ -1,4 +1,6 @@
 import os
+import platform
+
 os.environ["GRPC_VERBOSITY"] = "ERROR"
 
 import typer
@@ -15,6 +17,16 @@ FILE_NAME = settings.data_file
 console = Console()
 app = typer.Typer(help="SassyShell CLI")
 
+def get_shell_type() -> str:
+    system = platform.system()
+    if system == "Windows":
+        parent = os.environ.get("PSModulePath")
+        return "powershell" if parent else "cmd"
+    elif system == "Darwin":
+        return "bash/zsh (macOS)"
+    else:
+        return "bash/zsh (Linux)"
+
 @app.command(name="ask")
 def sassysh(
     query: Annotated[str, typer.Argument(help="The query to process")] = "",
@@ -29,6 +41,7 @@ def sassysh(
     load_data = get_data(FILE_NAME)
     
     similar_commands = find_most_similar_commands(query, load_data)
+    user_input["shell_type"] = get_shell_type()
     context_summary = ""
 
     if similar_commands:
