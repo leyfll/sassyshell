@@ -77,6 +77,10 @@ Looks like you're having trouble with your Git commits again! You can add your n
 git commit --amend --no-edit
 ```
 
+### Contributing
+
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guide to get started. It covers setup, development, and how to submit changes.
+
 ### License
 
 This project is licensed under the MIT License.
