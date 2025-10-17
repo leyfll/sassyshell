@@ -1,10 +1,17 @@
-# SassyShell (sassysh)
+# SassyShell (sassysh) 
+
+<p align="center">
+  <a href="https://pypi.org/project/sassyshell/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/sassyshell.svg"></a>
+  <a href="https://pepy.tech/project/sassyshell"><img alt="Downloads" src="https://static.pepy.tech/badge/sassyshell/month"></a>
+  <a href="https://github.com/parthjain18/sassyshell/actions/workflows/publish.yml"><img alt="Build Status" src="https://github.com/parthjain18/sassyshell/actions/workflows/publish.yml/badge.svg"></a>
+  <a href="https://pypi.org/project/sassyshell/"><img alt="Python Version" src="https://img.shields.io/pypi/pyversions/sassyshell.svg"></a>
+  <a href="https://github.com/parthjain18/sassyshell/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/parthjain18/sassyshell"></a>
+  <a href="https://hacktoberfest.com/participation/"><img alt="Hacktoberfest" src="https://img.shields.io/badge/Hacktoberfest-Accepted-orange?style=flat"></a>
+</p>
 
 Your sassy, command-line tutor that remembers the commands you keep forgetting.
 
 ---
-
-
 
 ### Why I Built This
 
