@@ -1,6 +1,6 @@
 [project]
 name = "sassyshell"
-version = "0.1.5"
+version = "0.1.6"
 description = "A sassy, AI-powered CLI sidekick that remembers the commands you forget and mocks you into getting better."
 readme = "README.md"
 requires-python = ">=3.12"

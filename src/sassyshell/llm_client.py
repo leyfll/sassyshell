@@ -8,10 +8,17 @@ class OutputFormat(BaseModel):
     command: str = Field(..., description="The single, executable shell command that answers the user's query.")
     generalized_command: str = Field(..., description="The generalized version of the command to execute in the shell")
 
-def get_llm_client():
-    return init_chat_model(model=settings.llm_model_name, model_provider=settings.llm_model_provider, api_key=settings.llm_api_key).with_structured_output(OutputFormat)
+_llm_client = None
 
-llm = get_llm_client()
+def get_llm_client():
+    global _llm_client
+    if _llm_client is None:
+        _llm_client = init_chat_model(
+            model=settings.llm_model_name, 
+            model_provider=settings.llm_model_provider, 
+            api_key=settings.llm_api_key
+        ).with_structured_output(OutputFormat)
+    return _llm_client
 
 def get_results_from_llm(data: dict) -> OutputFormat:
 
@@ -52,8 +59,8 @@ Check the times_called—if it's high, they might benefit from understanding WHY
     else:
         prompt += "\nNo previous context available—provide straightforward answer."
 
-
-    response =  llm.invoke(prompt)
+    llm = get_llm_client()
+    response = llm.invoke(prompt)
 
     if not isinstance(response, OutputFormat):
         raise ValueError(f"LLM response is not in the expected format. Got: {response}")
