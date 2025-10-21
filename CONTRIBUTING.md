@@ -20,13 +20,37 @@ uv sync
 
 This command installs all dependencies and the project itself in editable mode. The `sassyshell` and `sassysh` commands will be available in your shell.
 
-And activate your virtual env
+5. Activate your virtual environment:
 
 ```bash
-.venv/bin/activate
+source .venv/bin/activate
 ```
 
-5. Create a new branch for your changes:
+6. After making code changes, rebuild the package:
+
+```bash
+uv build
+```
+
+Or if you prefer using pip directly:
+
+```bash
+pip install -e .
+```
+
+6. After making code changes, rebuild the package:
+
+```bash
+uv build
+```
+
+Or if you prefer using pip directly:
+
+```bash
+pip install -e .
+```
+
+7. Create a new branch for your changes:
 
 ```bash
 git checkout -b feature/your-feature-name
